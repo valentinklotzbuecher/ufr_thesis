@@ -2,22 +2,54 @@ project:
   type: book
 
 book:
-  title: "ufr_thesis"
-  author: "Norah Jones"
-  date: "28.8.2024"
+  title: "Quarto Template"
+  subtitle: "for Master's and Bachelor's theses"
+  author: 
+    - name: "Valentin Klotzb&uuml;cher"
+      affiliations:
+        - name: "University of Freiburg"
+          department: "Department of Economics"
+  date: last modified
+  date-format: long
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - conclusion.qmd
     - references.qmd
-
+  output-file: "FirstnameLastname_thesis.pdf"
+   
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: journal
+    fontsize: 1.2em
+    linestretch: 1.7
   pdf:
     documentclass: scrreprt
-
+    toc: true
+    toc-depth: 3
+    toc-title: "Table of contents"
+    lof: true
+    lot: true
+    number-sections: true
+    number-depth: 2
+    geometry:
+      - inner=6cm
+      - outer=1cm
+      - top=2cm
+      - bottom=1cm
+      - headsep=22pt
+      - headheight=11pt
+      - footskip=33pt
+      - ignorehead
+      - ignorefoot
+      - heightrounded
+    mainfont: "Times New Roman"
+    sansfont: "Arial"
+    monofont: "Courier New"
+    include-in-header: include-in-header.tex
+    template-partials:
+        - before-body.tex
 
 

@@ -1,0 +1,102 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Template",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "2 Why You Should Consider Quarto and Literate Programming for Your Economics Thesis\nEmbarking on a thesis in economics is a challenging yet rewarding journey, and the tools you choose can make a significant difference in both the quality and the process of your work. Quarto and literate programming offer a modern, efficient, and powerful approach that aligns perfectly with the demands of economic research. Here’s why you should consider integrating them into your thesis work:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#clarity-and-transparency",
+    "href": "intro.html#clarity-and-transparency",
+    "title": "1  Introduction",
+    "section": "2.1 Clarity and Transparency",
+    "text": "2.1 Clarity and Transparency\nIn economics, clear communication of your methodology and results is crucial. Quarto enables you to write your thesis in a way that seamlessly integrates code, data, and narrative. This approach ensures that your analysis is not only transparent but also easily reproducible by others. By using literate programming, you provide your readers with a clear path from raw data to final conclusions, making your work more credible and trustworthy.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#reproducibility",
+    "href": "intro.html#reproducibility",
+    "title": "1  Introduction",
+    "section": "2.2 Reproducibility",
+    "text": "2.2 Reproducibility\nThe ability to reproduce research findings is a cornerstone of sound economic analysis. Quarto allows you to create dynamic documents where data analysis and results are automatically updated if the data changes or if your methodology is refined. This means that you can confidently share your thesis, knowing that others can replicate your results precisely, fostering a stronger academic community.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#efficiency-in-workflow",
+    "href": "intro.html#efficiency-in-workflow",
+    "title": "1  Introduction",
+    "section": "2.3 Efficiency in Workflow",
+    "text": "2.3 Efficiency in Workflow\nWriting a thesis is time-consuming, and efficiency is key. Quarto streamlines the process by allowing you to write, code, and visualize data in a single environment. No more switching between word processors, statistical software, and graphing tools—everything you need is in one place. This integrated approach reduces errors, saves time, and allows you to focus on the substance of your research rather than the mechanics of document preparation.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#enhanced-presentation-of-results",
+    "href": "intro.html#enhanced-presentation-of-results",
+    "title": "1  Introduction",
+    "section": "2.4 Enhanced Presentation of Results",
+    "text": "2.4 Enhanced Presentation of Results\nQuarto supports advanced typesetting features, including LaTeX-style equations, beautifully formatted tables, and high-quality graphics, which are essential for presenting complex economic analyses. You can produce professional-quality documents that will impress your thesis committee and stand up to scrutiny in academic publications.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#a-modern-skill-set",
+    "href": "intro.html#a-modern-skill-set",
+    "title": "1  Introduction",
+    "section": "2.5 A Modern Skill Set",
+    "text": "2.5 A Modern Skill Set\nBy using Quarto and literate programming, you’re not just writing a thesis; you’re also developing skills that are highly valued in academia and industry. The ability to document and share reproducible research is increasingly important in a data-driven world. Mastering these tools gives you a competitive edge in your future career, whether you pursue further academic research or enter the job market.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#conclusion",
+    "href": "intro.html#conclusion",
+    "title": "1  Introduction",
+    "section": "2.6 Conclusion",
+    "text": "2.6 Conclusion\nIncorporating Quarto and literate programming into your economics thesis is more than just a choice of tools—it’s a commitment to clarity, reproducibility, and efficiency. By adopting this modern approach, you’ll not only produce a thesis of the highest quality but also equip yourself with skills that will serve you well throughout your academic and professional life. Make your thesis journey smoother and your results more impactful by embracing Quarto and literate programming today.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "conclusion.html",
+    "href": "conclusion.html",
+    "title": "2  First chapter title",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>First chapter title</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "References"
+    ]
+  }
+]
