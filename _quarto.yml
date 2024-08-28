@@ -30,14 +30,14 @@ format:
     toc: true
     toc-depth: 3
     toc-title: "Table of contents"
-    lof: true
-    lot: true
+    lof: false
+    lot: false
     number-sections: true
     number-depth: 2
     geometry:
       - inner=6cm
       - outer=1cm
-      - top=2cm
+      - top=1.5cm
       - bottom=1cm
       - headsep=22pt
       - headheight=11pt
@@ -52,4 +52,9 @@ format:
     template-partials:
         - before-body.tex
 
+execute: 
+  cache: true
+  freeze: auto
+  
+  
 

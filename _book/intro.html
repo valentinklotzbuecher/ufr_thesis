@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -89,6 +123,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -160,14 +223,14 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-you-should-consider-quarto-and-literate-programming-for-your-economics-thesis" id="toc-why-you-should-consider-quarto-and-literate-programming-for-your-economics-thesis" class="nav-link active" data-scroll-target="#why-you-should-consider-quarto-and-literate-programming-for-your-economics-thesis"><span class="header-section-number">2</span> Why You Should Consider Quarto and Literate Programming for Your Economics Thesis</a>
+  <li><a href="#the-importance-of-modern-tools-in-economic-research" id="toc-the-importance-of-modern-tools-in-economic-research" class="nav-link active" data-scroll-target="#the-importance-of-modern-tools-in-economic-research"><span class="header-section-number">2</span> The Importance of Modern Tools in Economic Research</a></li>
+  <li><a href="#probit-estimation-in-economics" id="toc-probit-estimation-in-economics" class="nav-link" data-scroll-target="#probit-estimation-in-economics"><span class="header-section-number">3</span> Probit Estimation in Economics</a>
   <ul class="collapse">
-  <li><a href="#clarity-and-transparency" id="toc-clarity-and-transparency" class="nav-link" data-scroll-target="#clarity-and-transparency"><span class="header-section-number">2.1</span> Clarity and Transparency</a></li>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">2.2</span> Reproducibility</a></li>
-  <li><a href="#efficiency-in-workflow" id="toc-efficiency-in-workflow" class="nav-link" data-scroll-target="#efficiency-in-workflow"><span class="header-section-number">2.3</span> Efficiency in Workflow</a></li>
-  <li><a href="#enhanced-presentation-of-results" id="toc-enhanced-presentation-of-results" class="nav-link" data-scroll-target="#enhanced-presentation-of-results"><span class="header-section-number">2.4</span> Enhanced Presentation of Results</a></li>
-  <li><a href="#a-modern-skill-set" id="toc-a-modern-skill-set" class="nav-link" data-scroll-target="#a-modern-skill-set"><span class="header-section-number">2.5</span> A Modern Skill Set</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">2.6</span> Conclusion</a></li>
+  <li><a href="#the-probit-model" id="toc-the-probit-model" class="nav-link" data-scroll-target="#the-probit-model"><span class="header-section-number">3.1</span> The Probit Model</a></li>
+  <li><a href="#estimating-the-model" id="toc-estimating-the-model" class="nav-link" data-scroll-target="#estimating-the-model"><span class="header-section-number">3.2</span> Estimating the Model</a>
+  <ul class="collapse">
+  <li><a href="#code-example-estimating-a-probit-model" id="toc-code-example-estimating-a-probit-model" class="nav-link" data-scroll-target="#code-example-estimating-a-probit-model"><span class="header-section-number">3.2.1</span> Code Example: Estimating a Probit Model</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -196,33 +259,206 @@ div.csl-indent {
 
 <p>This is a book created from markdown and executable code.</p>
 <p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
-<p>GPT4o says:</p>
-<section id="why-you-should-consider-quarto-and-literate-programming-for-your-economics-thesis" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Why You Should Consider Quarto and Literate Programming for Your Economics Thesis</h1>
-<p>Embarking on a thesis in economics is a challenging yet rewarding journey, and the tools you choose can make a significant difference in both the quality and the process of your work. Quarto and literate programming offer a modern, efficient, and powerful approach that aligns perfectly with the demands of economic research. Here’s why you should consider integrating them into your thesis work:</p>
-<section id="clarity-and-transparency" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="clarity-and-transparency"><span class="header-section-number">2.1</span> Clarity and Transparency</h2>
-<p>In economics, clear communication of your methodology and results is crucial. Quarto enables you to write your thesis in a way that seamlessly integrates code, data, and narrative. This approach ensures that your analysis is not only transparent but also easily reproducible by others. By using literate programming, you provide your readers with a clear path from raw data to final conclusions, making your work more credible and trustworthy.</p>
+<p>What follows is generated with GPT4o as blindtext to illustrate formatting options.</p>
+<section id="the-importance-of-modern-tools-in-economic-research" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The Importance of Modern Tools in Economic Research</h1>
+<p>Embarking on a thesis in economics is an intellectually stimulating yet demanding journey, one that requires not just analytical rigor but also clear communication and effective organization of complex ideas. As you delve into this process, the tools you choose can greatly influence both your efficiency and the quality of your work. This is where Quarto and literate programming come into play, offering a robust framework that integrates writing, coding, and data visualization into a cohesive whole. By adopting these tools, you are not only streamlining your workflow but also ensuring that your research is transparent, reproducible, and professionally presented.</p>
+<p>In the realm of economic research, clarity is paramount. Your thesis must convey intricate methodologies and detailed results in a manner that is accessible and understandable, not just to your thesis committee but to the broader academic community. Quarto allows you to write your thesis in a format that interweaves narrative and analysis, making it easier for your readers to follow the logical flow of your argument. The integration of literate programming takes this a step further by embedding your code within the document itself. This approach ensures that every piece of analysis is directly linked to the code that generated it, providing a level of transparency that is essential for the credibility of your work. Readers can see exactly how you arrived at your conclusions, which not only enhances the trustworthiness of your findings but also facilitates the replication of your results by other researchers.</p>
+<p>Reproducibility is a cornerstone of good research, particularly in economics, where the ability to replicate findings is critical to the validation of results. With Quarto, you can create dynamic documents that automatically update analyses and results whenever data or parameters are changed. This means that as your research evolves, your thesis remains current without the need for extensive manual updates. This feature is particularly useful in the context of collaborative research or when working with large datasets, where maintaining consistency and accuracy across multiple revisions can be challenging. By using literate programming within Quarto, you are not just writing a static document; you are creating a living, breathing piece of research that evolves with your work.</p>
+<p>Efficiency is another significant benefit of using Quarto and literate programming. The process of writing a thesis is inherently time-consuming, and any tool that can reduce the time spent on formatting, revising, or switching between different software platforms is invaluable. Quarto brings together writing, coding, and data visualization in a single environment, allowing you to focus on the intellectual aspects of your research rather than the mechanics of document preparation. This integrated approach minimizes the risk of errors and inconsistencies that can arise from using multiple tools, and it accelerates the overall workflow, giving you more time to refine your analysis and polish your arguments.</p>
+<p>The presentation of your results is equally important, particularly in a field like economics, where the clarity and professionalism of your graphs, tables, and equations can significantly impact how your work is received. Quarto supports advanced typesetting features, enabling you to produce documents that are not only clear and well-organized but also aesthetically pleasing. Whether you are presenting complex econometric models, detailed statistical tables, or intricate graphs, Quarto ensures that your work looks professional and meets the high standards expected in academic publications.</p>
+<p>Furthermore, by adopting Quarto and literate programming, you are equipping yourself with modern skills that extend beyond the completion of your thesis. In today’s data-driven world, the ability to produce reproducible research and to document the research process in a clear and transparent way is highly valued, both in academia and in the private sector. Mastering these tools gives you a competitive edge, whether you are pursuing further academic research, entering the job market, or working in a professional setting where data analysis and communication are key components of the role.</p>
+<p>In conclusion, the use of Quarto and literate programming in your economics thesis is more than just a choice of tools; it represents a commitment to producing high-quality, transparent, and reproducible research. By integrating your writing, coding, and data analysis into a single, dynamic document, you are not only enhancing the quality of your thesis but also streamlining the process and developing skills that will serve you well in your future career. Embracing these modern approaches to research documentation will not only make your thesis journey smoother and more efficient but also ensure that your work stands out in the academic community for its clarity, rigor, and professionalism.</p>
 </section>
-<section id="reproducibility" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">2.2</span> Reproducibility</h2>
-<p>The ability to reproduce research findings is a cornerstone of sound economic analysis. Quarto allows you to create dynamic documents where data analysis and results are automatically updated if the data changes or if your methodology is refined. This means that you can confidently share your thesis, knowing that others can replicate your results precisely, fostering a stronger academic community.</p>
+<section id="probit-estimation-in-economics" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Probit Estimation in Economics</h1>
+<p>In many economic research contexts, we are interested in modeling binary outcome variables, such as whether an individual chooses to participate in the labor force or whether a firm decides to enter a particular market. Probit models are commonly used for this purpose, as they allow us to estimate the probability that a particular outcome occurs given a set of explanatory variables.</p>
+<section id="the-probit-model" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-probit-model"><span class="header-section-number">3.1</span> The Probit Model</h2>
+<p>The Probit model assumes that there is an underlying latent variable <span class="math inline">\(Y^*\)</span> that is a linear function of the explanatory variables <span class="math inline">\(X\)</span> and a normally distributed error term <span class="math inline">\(\epsilon\)</span>:</p>
+<p><span class="math display">\[
+Y^* = X\beta + \epsilon, \quad \epsilon \sim \mathcal{N}(0, 1)
+\]</span></p>
+<p>However, we do not observe $Y^* $ directly. Instead, we observe a binary outcome <span class="math inline">\(Y\)</span> defined as:</p>
+<p><span class="math display">\[
+Y =
+\begin{cases}
+1 &amp; \text{if } Y^* &gt; 0 \\
+0 &amp; \text{if } Y^* \leq 0
+\end{cases}
+\]</span></p>
+<p>The probability that $Y = 1 $ (i.e., the event of interest occurs) is given by:</p>
+<p><span class="math display">\[
+P(Y = 1 \mid X) = \Phi(X\beta)
+\]</span></p>
+<p>where <span class="math inline">\(\Phi(\cdot)\)</span> is the cumulative distribution function (CDF) of the standard normal distribution.</p>
 </section>
-<section id="efficiency-in-workflow" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="efficiency-in-workflow"><span class="header-section-number">2.3</span> Efficiency in Workflow</h2>
-<p>Writing a thesis is time-consuming, and efficiency is key. Quarto streamlines the process by allowing you to write, code, and visualize data in a single environment. No more switching between word processors, statistical software, and graphing tools—everything you need is in one place. This integrated approach reduces errors, saves time, and allows you to focus on the substance of your research rather than the mechanics of document preparation.</p>
-</section>
-<section id="enhanced-presentation-of-results" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="enhanced-presentation-of-results"><span class="header-section-number">2.4</span> Enhanced Presentation of Results</h2>
-<p>Quarto supports advanced typesetting features, including LaTeX-style equations, beautifully formatted tables, and high-quality graphics, which are essential for presenting complex economic analyses. You can produce professional-quality documents that will impress your thesis committee and stand up to scrutiny in academic publications.</p>
-</section>
-<section id="a-modern-skill-set" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="a-modern-skill-set"><span class="header-section-number">2.5</span> A Modern Skill Set</h2>
-<p>By using Quarto and literate programming, you’re not just writing a thesis; you’re also developing skills that are highly valued in academia and industry. The ability to document and share reproducible research is increasingly important in a data-driven world. Mastering these tools gives you a competitive edge in your future career, whether you pursue further academic research or enter the job market.</p>
-</section>
-<section id="conclusion" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">2.6</span> Conclusion</h2>
-<p>Incorporating Quarto and literate programming into your economics thesis is more than just a choice of tools—it’s a commitment to clarity, reproducibility, and efficiency. By adopting this modern approach, you’ll not only produce a thesis of the highest quality but also equip yourself with skills that will serve you well throughout your academic and professional life. Make your thesis journey smoother and your results more impactful by embracing Quarto and literate programming today.</p>
+<section id="estimating-the-model" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="estimating-the-model"><span class="header-section-number">3.2</span> Estimating the Model</h2>
+<p>In practice, we estimate the vector of coefficients $$ using maximum likelihood estimation (MLE). The likelihood function for a sample of observations $i = 1, , n $ is given by:</p>
+<p><span class="math display">\[
+L(\beta) = \prod_{i=1}^n \Phi(X_i\beta)^{Y_i} \left[1 - \Phi(X_i\beta)\right]^{1-Y_i}
+\]</span></p>
+<p>The log-likelihood, which is typically maximized numerically to find the MLE of $$, is:</p>
+<p><span class="math display">\[
+\log L(\beta) = \sum_{i=1}^n \left[ Y_i \log \Phi(X_i\beta) + (1 - Y_i) \log \left(1 - \Phi(X_i\beta)\right) \right]
+\]</span></p>
+<section id="code-example-estimating-a-probit-model" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="code-example-estimating-a-probit-model"><span class="header-section-number">3.2.1</span> Code Example: Estimating a Probit Model</h3>
+<p>In practice, you might use a statistical software package to estimate a Probit model. For example, in R, you could use the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># For data manipulation and visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.1.4     v readr     2.1.5
+v forcats   1.0.0     v stringr   1.5.1
+v ggplot2   3.5.1     v tibble    3.2.1
+v lubridate 1.9.3     v tidyr     1.3.1
+v purrr     1.0.2     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(margins)    <span class="co"># For calculating marginal effects</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`modelsummary` 2.0.0 now uses `tinytable` as its default table-drawing
+  backend. Learn more at: https://vincentarelbundock.github.io/tinytable/
+
+Revert to `kableExtra` for one session:
+
+  options(modelsummary_factory_default = 'kableExtra')
+  options(modelsummary_factory_latex = 'kableExtra')
+  options(modelsummary_factory_html = 'kableExtra')
+
+Silence this message forever:
+
+  config_modelsummary(startup_message = FALSE)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'flextable'
+
+Das folgende Objekt ist maskiert 'package:purrr':
+
+    compose</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the built-in dataset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mtcars"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the data</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 11
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,~
+$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,~
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16~
+$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180~
+$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,~
+$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.~
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18~
+$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,~
+$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,~
+$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,~
+$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,~</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a binary outcome variable: 1 if mpg &gt; 20, 0 otherwise</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">high_mpg =</span> <span class="fu">ifelse</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the Probit model</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_mpg <span class="sc">~</span> hp <span class="sc">+</span> wt <span class="sc">+</span> cyl,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: Algorithmus konvergierte nicht</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+aufgetreten</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model results</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = high_mpg ~ hp + wt + cyl, family = binomial(link = "probit"), 
+    data = mtcars)
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)   227.9647 59356.0515   0.004    0.997
+hp             -0.5989   173.1890  -0.003    0.997
+wt            -60.3149 16456.6441  -0.004    0.997
+cyl             6.2871  4190.6791   0.002    0.999
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4.386e+01  on 31  degrees of freedom
+Residual deviance: 8.744e-09  on 28  degrees of freedom
+AIC: 8
+
+Number of Fisher Scoring iterations: 25</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate marginal effects</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>margins_model <span class="ot">&lt;-</span> <span class="fu">margins</span>(model)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the marginal effects</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#msummary(margins_model)</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize marginal effects</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(margins_model)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretation:</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># The summary(model) output provides the estimated coefficients for the Probit model.</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># The coefficients indicate the direction of the effect, but the marginal effects</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># calculated via the margins() function tell us how a unit change in each predictor</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># affects the probability of a car having high MPG.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-marginsplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-marginsplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="intro_files/figure-html/fig-marginsplot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marginsplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Marginal effects
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-marginsplot" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> shows the marginal effects.</p>
+<div id="tbl-marginsplot" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-marginsplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Marginal effects
+</figcaption>
+<div aria-describedby="tbl-marginsplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode cell-code anchored" id="tbl-marginsplot"><pre class="sourceCode r cell code-with-copy"><code class="sourceCode r"><span id="tbl-marginsplot-1"><a href="#tbl-marginsplot-1" aria-hidden="true" tabindex="-1"></a>summarytable <span class="ot">=</span> <span class="fu">msummary</span>(<span class="fu">list</span>(margins_model),</span>
+<span id="tbl-marginsplot-2"><a href="#tbl-marginsplot-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">output =</span> <span class="st">"flextable"</span>,</span>
+<span id="tbl-marginsplot-3"><a href="#tbl-marginsplot-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">fmt =</span> <span class="fu">fmt_statistic</span>(<span class="at">estimate =</span> <span class="dv">3</span>,</span>
+<span id="tbl-marginsplot-4"><a href="#tbl-marginsplot-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">std.error =</span> <span class="dv">3</span>,</span>
+<span id="tbl-marginsplot-5"><a href="#tbl-marginsplot-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">conf.low =</span> <span class="dv">3</span>,</span>
+<span id="tbl-marginsplot-6"><a href="#tbl-marginsplot-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">conf.high =</span> <span class="dv">3</span>,</span>
+<span id="tbl-marginsplot-7"><a href="#tbl-marginsplot-7" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nobs =</span> <span class="dv">0</span>),</span>
+<span id="tbl-marginsplot-8"><a href="#tbl-marginsplot-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">stars =</span> <span class="fu">c</span>(<span class="st">'*'</span> <span class="ot">=</span> <span class="fl">0.1</span>, <span class="st">'**'</span> <span class="ot">=</span> <span class="fl">0.05</span>, <span class="st">'***'</span> <span class="ot">=</span> <span class="fl">0.01</span>),</span>
+<span id="tbl-marginsplot-9"><a href="#tbl-marginsplot-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">estimate =</span> <span class="st">"{estimate}{stars}"</span>,</span>
+<span id="tbl-marginsplot-10"><a href="#tbl-marginsplot-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">statistic =</span> <span class="st">"({std.error})"</span>,</span>
+<span id="tbl-marginsplot-11"><a href="#tbl-marginsplot-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf_level =</span> .<span class="dv">95</span>, </span>
+<span id="tbl-marginsplot-12"><a href="#tbl-marginsplot-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">align=</span><span class="st">"lc"</span>,</span>
+<span id="tbl-marginsplot-13"><a href="#tbl-marginsplot-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">gof_omit =</span> <span class="st">'AIC|BIC|R2 Adj.|RMSE|Std.Errors|R2 Within Adj.|R2 Within|R2'</span>,</span>
+<span id="tbl-marginsplot-14"><a href="#tbl-marginsplot-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">coef_rename =</span> <span class="fu">c</span>(<span class="st">"lag_aid_gdp"</span> <span class="ot">=</span> <span class="st">"Aid/GDP, t-1"</span></span>
+<span id="tbl-marginsplot-15"><a href="#tbl-marginsplot-15" aria-hidden="true" tabindex="-1"></a>                           )</span>
+<span id="tbl-marginsplot-16"><a href="#tbl-marginsplot-16" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</figure>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -230,6 +466,7 @@ div.csl-indent {
 Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
 </div>
 </div>
+</section>
 </section>
 </section>
 

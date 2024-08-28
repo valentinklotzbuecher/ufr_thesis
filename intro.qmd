@@ -21,3 +21,132 @@ The presentation of your results is equally important, particularly in a field l
 Furthermore, by adopting Quarto and literate programming, you are equipping yourself with modern skills that extend beyond the completion of your thesis. In today’s data-driven world, the ability to produce reproducible research and to document the research process in a clear and transparent way is highly valued, both in academia and in the private sector. Mastering these tools gives you a competitive edge, whether you are pursuing further academic research, entering the job market, or working in a professional setting where data analysis and communication are key components of the role.
 
 In conclusion, the use of Quarto and literate programming in your economics thesis is more than just a choice of tools; it represents a commitment to producing high-quality, transparent, and reproducible research. By integrating your writing, coding, and data analysis into a single, dynamic document, you are not only enhancing the quality of your thesis but also streamlining the process and developing skills that will serve you well in your future career. Embracing these modern approaches to research documentation will not only make your thesis journey smoother and more efficient but also ensure that your work stands out in the academic community for its clarity, rigor, and professionalism.
+
+# Probit Estimation in Economics
+
+In many economic research contexts, we are interested in modeling binary outcome variables, such as whether an individual chooses to participate in the labor force or whether a firm decides to enter a particular market. Probit models are commonly used for this purpose, as they allow us to estimate the probability that a particular outcome occurs given a set of explanatory variables.
+
+## The Probit Model
+
+The Probit model assumes that there is an underlying latent variable $Y^*$ that is a linear function of the explanatory variables $X$ and a normally distributed error term $\epsilon$:
+
+$$
+Y^* = X\beta + \epsilon, \quad \epsilon \sim \mathcal{N}(0, 1)
+$$
+
+However, we do not observe $Y^*$ directly. Instead, we observe a binary outcome $Y$ defined as:
+
+$$
+Y = 
+\begin{cases} 
+1 & \text{if } Y^* > 0 \\
+0 & \text{if } Y^* \leq 0
+\end{cases}
+$$
+
+The probability that $Y = 1$ (i.e., the event of interest occurs) is given by:
+
+$$
+P(Y = 1 \mid X) = \Phi(X\beta)
+$$
+
+where $\Phi(\cdot)$ is the cumulative distribution function (CDF) of the standard normal distribution.
+
+## Estimating the Model
+
+In practice, we estimate the vector of coefficients $\beta $ using maximum likelihood estimation (MLE). The likelihood function for a sample of observations $i = 1, \dots, n$ is given by:
+
+$$
+L(\beta) = \prod_{i=1}^n \Phi(X_i\beta)^{Y_i} \left[1 - \Phi(X_i\beta)\right]^{1-Y_i}
+$$
+
+The log-likelihood, which is typically maximized numerically to find the MLE of $\beta$, is:
+
+$$
+\log L(\beta) = \sum_{i=1}^n \left[ Y_i \log \Phi(X_i\beta) + (1 - Y_i) \log \left(1 - \Phi(X_i\beta)\right) \right]
+$$
+
+### Code Example: Estimating a Probit Model
+
+In practice, you might use a statistical software package to estimate a Probit model. For example, in R, you could use the following code:
+
+```{r}
+
+# Load necessary libraries
+library(tidyverse)  # For data manipulation and visualization
+library(margins)    # For calculating marginal effects
+library(modelsummary)    
+library(flextable)
+
+# Load the built-in dataset
+data("mtcars")
+
+# Inspect the data
+glimpse(mtcars)
+
+# Create a binary outcome variable: 1 if mpg > 20, 0 otherwise
+mtcars <- mtcars %>%
+  mutate(high_mpg = ifelse(mpg > 20, 1, 0))
+
+# Fit the Probit model
+model <- glm(high_mpg ~ hp + wt + cyl,
+             family = binomial(link = "probit"),
+             data = mtcars)
+
+# Summarize the model results
+summary(model)
+
+
+```
+
+```{r}
+#| label: fig-marginsplot
+#| fig-cap: "Marginal effects"
+
+# Calculate marginal effects
+margins_model <- margins(model)
+
+# Summarize the marginal effects
+#msummary(margins_model)
+
+# Visualize marginal effects
+plot(margins_model)
+
+# Interpretation:
+# The summary(model) output provides the estimated coefficients for the Probit model.
+# The coefficients indicate the direction of the effect, but the marginal effects
+# calculated via the margins() function tell us how a unit change in each predictor
+# affects the probability of a car having high MPG.
+
+```
+
+
+@fig-marginsplot shows the marginal effects.
+
+
+```{r}
+#| label: tbl-marginsplot
+#| tbl-cap: "Marginal effects"
+
+
+summarytable = msummary(list(margins_model),
+         output = "flextable",
+         fmt = fmt_statistic(estimate = 3,
+                             std.error = 3,
+                             conf.low = 3,
+                             conf.high = 3,
+                             nobs = 0),
+         stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
+         estimate = "{estimate}{stars}",
+         statistic = "({std.error})",
+         conf_level = .95, 
+         align="lc",
+         gof_omit = 'AIC|BIC|R2 Adj.|RMSE|Std.Errors|R2 Within Adj.|R2 Within|R2',
+         coef_rename = c("lag_aid_gdp" = "Aid/GDP, t-1"
+                           )
+         )
+
+
+```
+
+
