@@ -1,7 +1,5 @@
-# First chapter title
+# Conclusion {#sec-conclusion}
 
-In summary, this book has no content whatsoever.
-
-```{r}
-1 + 1
-```
+Replace this chapter with your conclusion. Summarise what you found, say what
+it means and where its limits lie, and suggest what future work could do
+next. New results do not belong here.

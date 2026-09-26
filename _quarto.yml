@@ -15,8 +15,12 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - guide.qmd
     - conclusion.qmd
     - references.qmd
+  appendices:
+    - appendix.qmd
+    - declaration.qmd
   # Quarto adds the .pdf extension
   output-file: "FirstnameLastname_thesis"
 

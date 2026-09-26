@@ -1,0 +1,18 @@
+# Declaration of authorship {.unnumbered}
+
+**Replace this text with the declaration your examination office requires,
+word for word.** You will find the current wording on your examination
+office's forms (Prüfungsamt) or in your programme's examination regulations
+(Prüfungsordnung). It typically confirms that you wrote the thesis yourself, used
+only the sources and aids you name, and have not submitted it for another
+examination; many universities now also ask you to state whether and how you
+used AI tools.
+
+```{=latex}
+\vspace{3cm}
+\noindent
+\begin{tabular}{@{}p{6cm}@{\hspace{2cm}}p{6cm}@{}}
+\hrulefill & \hrulefill \\
+Place, date & Signature
+\end{tabular}
+```

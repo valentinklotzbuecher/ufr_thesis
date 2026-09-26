@@ -1,9 +1,5 @@
-# Preface {.unnumbered}
+# Abstract {.unnumbered}
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+State your research question, the data and method you use, and your main
+result in a single paragraph of about 150 to 250 words. Write it last, once
+you know what the thesis says.

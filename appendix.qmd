@@ -1,0 +1,29 @@
+# Additional tables {#sec-appendix-tables}
+
+Appendix chapters are listed under `appendices:` in `_quarto.yml`. They are
+lettered rather than numbered, so tables and figures in this one are
+numbered A.1, A.2 and so on. The code that makes @tbl-descriptives is hidden
+with `#| echo: false`, as it usually would be in a thesis.
+
+```{r}
+#| label: tbl-descriptives
+#| tbl-cap: "Descriptive statistics, 50 countries, averages for 1960 to 1970"
+#| tbl-pos: "H"
+#| echo: false
+#| message: false
+
+library(modelsummary)
+
+savings <- LifeCycleSavings
+savings$dpi_k <- savings$dpi / 1000
+
+datasummary(
+  (`Savings ratio (%)` = sr) +
+    (`Population under 15 (%)` = pop15) +
+    (`Population over 75 (%)` = pop75) +
+    (`Disposable income per head (thousands)` = dpi_k) +
+    (`Growth of disposable income (%)` = ddpi) ~
+    Mean + SD + Min + Max,
+  data = savings
+)
+```
