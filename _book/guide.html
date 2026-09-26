@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Writing with Quarto – Title of Your Thesis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./conclusion.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6bc891ce51ccb5a8a90db67807a334fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./guide.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Writing with Quarto</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Title of Your Thesis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Writing with Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Additional tables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./declaration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Declaration of authorship</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-citations" id="toc-sec-citations" class="nav-link active" data-scroll-target="#sec-citations"><span class="header-section-number">2.1</span> Citations</a></li>
+  <li><a href="#sec-equations" id="toc-sec-equations" class="nav-link" data-scroll-target="#sec-equations"><span class="header-section-number">2.2</span> Equations</a></li>
+  <li><a href="#sec-figures" id="toc-sec-figures" class="nav-link" data-scroll-target="#sec-figures"><span class="header-section-number">2.3</span> Figures</a></li>
+  <li><a href="#sec-tables" id="toc-sec-tables" class="nav-link" data-scroll-target="#sec-tables"><span class="header-section-number">2.4</span> Tables</a></li>
+  <li><a href="#sec-crossrefs" id="toc-sec-crossrefs" class="nav-link" data-scroll-target="#sec-crossrefs"><span class="header-section-number">2.5</span> Cross-references</a></li>
+  <li><a href="#sec-workflow" id="toc-sec-workflow" class="nav-link" data-scroll-target="#sec-workflow"><span class="header-section-number">2.6</span> Workflow</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-guide" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Writing with Quarto</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This chapter is a worked example. Open <code>guide.qmd</code> next to the PDF to see how each element is written, copy what you need into your own chapters, then delete this one and remove it from <code>chapters:</code> in <code>_quarto.yml</code>. Writing text and code in one document goes back to what <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> called literate programming: the analysis and its description can no longer drift apart.</p>
+<p>The example asks an old question in empirical economics: do countries with more dependants save less? Under the life-cycle hypothesis <span class="citation" data-cites="modigliani1966">(<a href="references.html#ref-modigliani1966" role="doc-biblioref">Modigliani 1966</a>)</span>, people save during their working years and run their savings down in retirement, so countries with more young and old dependants should save a smaller share of their income. The data are R’s built-in <code>LifeCycleSavings</code> set, 50 countries averaged over 1960 to 1970, which <span class="citation" data-cites="belsley1980">Belsley et al. (<a href="references.html#ref-belsley1980" role="doc-biblioref">1980</a>)</span> took from a bachelor’s thesis written at MIT.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Load the packages and prepare the data once, at the top of the chapter:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Income in thousands, so its coefficient is readable</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>savings <span class="ot">&lt;-</span> LifeCycleSavings</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>savings<span class="sc">$</span>dpi_k <span class="ot">&lt;-</span> savings<span class="sc">$</span>dpi <span class="sc">/</span> <span class="dv">1000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="sec-citations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-citations"><span class="header-section-number">2.1</span> Citations</h2>
+<p>References live in <code>references.bib</code>, a plain-text BibTeX file that a reference manager such as Zotero (with the Better BibTeX add-on) can keep up to date for you. Every entry has a key, and you cite it by writing the key after an <code>@</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>You write</th>
+<th>You get</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>@modigliani1966 argues</code></td>
+<td><span class="citation" data-cites="modigliani1966">Modigliani (<a href="references.html#ref-modigliani1966" role="doc-biblioref">1966</a>)</span> argues</td>
+</tr>
+<tr class="even">
+<td><code>the data [@belsley1980]</code></td>
+<td>the data <span class="citation" data-cites="belsley1980">(<a href="references.html#ref-belsley1980" role="doc-biblioref">Belsley et al. 1980</a>)</span></td>
+</tr>
+<tr class="odd">
+<td><code>[see @modigliani1966]</code></td>
+<td><span class="citation" data-cites="modigliani1966">(see <a href="references.html#ref-modigliani1966" role="doc-biblioref">Modigliani 1966</a>)</span></td>
+</tr>
+<tr class="even">
+<td><code>[@knuth84; @r2024]</code></td>
+<td><span class="citation" data-cites="knuth84 r2024">(<a href="references.html#ref-knuth84" role="doc-biblioref">Knuth 1984</a>; <a href="references.html#ref-r2024" role="doc-biblioref">R Core Team 2024</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Add a page number with <code>[@modigliani1966, p. 12]</code>. The list of references at the end holds every source you cite and nothing else, in the Chicago author-date style unless you choose another with <code>csl:</code> in <code>_quarto.yml</code>. Cite your software too: <code>citation()</code> and <code>citation("modelsummary")</code> in R print ready-made entries.</p>
+</section>
+<section id="sec-equations" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-equations"><span class="header-section-number">2.2</span> Equations</h2>
+<p>Equations use LaTeX notation between double dollar signs. A label after the closing <code>$$</code> numbers the equation:</p>
+<p><span id="eq-lifecycle"><span class="math display">\[
+\text{sr}_i = \beta_0 + \beta_1\,\text{pop15}_i + \beta_2\,\text{pop75}_i
+  + \beta_3\,\text{dpi}_i + \beta_4\,\text{ddpi}_i + \varepsilon_i
+\tag{2.1}\]</span></span></p>
+<p>Here <span class="math inline">\(\text{sr}_i\)</span> is the savings ratio of country <span class="math inline">\(i\)</span>, aggregate personal saving as a percentage of disposable income; pop15 and pop75 are the shares of the population under 15 and over 75; dpi is real disposable income per head and ddpi its growth rate. Inline maths such as <span class="math inline">\(\beta_1 &lt; 0\)</span> goes between single dollar signs.</p>
+</section>
+<section id="sec-figures" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-figures"><span class="header-section-number">2.3</span> Figures</h2>
+<p>Figures come from code chunks. The options at the top of a chunk, the lines starting with <code>#|</code>, give the figure a label that begins with <code>fig-</code> and a caption, and <a href="#fig-savings" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> is then numbered and can be referenced anywhere.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(savings, <span class="fu">aes</span>(<span class="at">x =</span> pop15, <span class="at">y =</span> sr)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Population under 15 (%)"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Savings ratio (%)"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-savings" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-savings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="guide_files/figure-html/fig-savings-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-savings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Savings ratio and the share of the population under 15, 50 countries, averages for 1960 to 1970
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Code is shown here so that you can see how each result is made. To hide it in your thesis, add <code>#| echo: false</code> to a chunk, or <code>echo: false</code> under <code>execute:</code> in <code>_quarto.yml</code> for all chunks at once.</p>
+</section>
+<section id="sec-tables" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-tables"><span class="header-section-number">2.4</span> Tables</h2>
+<p>Tables work the same way, with a label that begins with <code>tbl-</code>. The modelsummary package <span class="citation" data-cites="arelbundock2022">(<a href="references.html#ref-arelbundock2022" role="doc-biblioref">Arel-Bundock 2022</a>)</span> turns fitted models into regression tables that look right in both the PDF and the web version:</p>
+<div class="cell" data-tbl-pos="H">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"(1)"</span> <span class="ot">=</span> <span class="fu">lm</span>(sr <span class="sc">~</span> pop15 <span class="sc">+</span> pop75, <span class="at">data =</span> savings),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"(2)"</span> <span class="ot">=</span> <span class="fu">lm</span>(sr <span class="sc">~</span> pop15 <span class="sc">+</span> pop75 <span class="sc">+</span> dpi_k <span class="sc">+</span> ddpi,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> savings)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  models,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">stars =</span> <span class="fu">c</span>(<span class="st">"*"</span> <span class="ot">=</span> <span class="fl">0.1</span>, <span class="st">"**"</span> <span class="ot">=</span> <span class="fl">0.05</span>, <span class="st">"***"</span> <span class="ot">=</span> <span class="fl">0.01</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_map =</span> <span class="fu">c</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">pop15 =</span> <span class="st">"Population under 15 (%)"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">pop75 =</span> <span class="st">"Population over 75 (%)"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">dpi_k =</span> <span class="st">"Disposable income per head (thousands)"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">ddpi =</span> <span class="st">"Growth of disposable income (%)"</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-savings" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="H">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-savings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: The savings ratio and the age structure of the population, OLS estimates of <a href="#eq-lifecycle" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>
+</figcaption>
+<div aria-describedby="tbl-savings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+      function styleCell_7zfsvznk8wtc5btgpv25(i, j, css_id) {
+        var table = document.getElementById("tinytable_7zfsvznk8wtc5btgpv25");
+        table.rows[i].cells[j].classList.add(css_id);
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_7zfsvznk8wtc5btgpv25');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_7zfsvznk8wtc5btgpv25(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_7zfsvznk8wtc5btgpv25");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(0, 0, 'tinytable_css_idraox9kw2exa53w842t69') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(0, 1, 'tinytable_css_id8qwy9ym5q2btt1xn3ww3') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(0, 2, 'tinytable_css_id8qwy9ym5q2btt1xn3ww3') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(1, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(1, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(1, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(2, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(2, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(2, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(3, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(3, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(3, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(4, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(4, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(4, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(5, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(5, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(5, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(6, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(6, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(6, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(7, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(7, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(7, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(8, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(8, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(8, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(9, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(9, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(9, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(10, 0, 'tinytable_css_ido28jjw1wqve2afutb1gb') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(10, 1, 'tinytable_css_idxbxrh8h9e7m51anrq0n9') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(10, 2, 'tinytable_css_idxbxrh8h9e7m51anrq0n9') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(11, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(11, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(11, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(12, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(12, 1, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(12, 2, 'tinytable_css_idq4hcuq1ykgko84myimr7') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(13, 0, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(13, 1, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(13, 2, 'tinytable_css_idem275miuapsfy3mm0k1k') })
+    </script>
+
+    <style>
+    .table td.tinytable_css_idraox9kw2exa53w842t69, .table th.tinytable_css_idraox9kw2exa53w842t69 {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_id8qwy9ym5q2btt1xn3ww3, .table th.tinytable_css_id8qwy9ym5q2btt1xn3ww3 {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idem275miuapsfy3mm0k1k, .table th.tinytable_css_idem275miuapsfy3mm0k1k {  text-align: left; }
+    .table td.tinytable_css_idq4hcuq1ykgko84myimr7, .table th.tinytable_css_idq4hcuq1ykgko84myimr7 {  text-align: center; }
+    .table td.tinytable_css_ido28jjw1wqve2afutb1gb, .table th.tinytable_css_ido28jjw1wqve2afutb1gb {  border-bottom: solid 0.05em black;  text-align: left; }
+    .table td.tinytable_css_idxbxrh8h9e7m51anrq0n9, .table th.tinytable_css_idxbxrh8h9e7m51anrq0n9 {  border-bottom: solid 0.05em black;  text-align: center; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_7zfsvznk8wtc5btgpv25" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">(1)</th>
+                <th scope="col">(2)</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="3">* p &lt; 0.1, ** p &lt; 0.05, *** p &lt; 0.01</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>Population under 15 (%)               </td>
+                  <td>-0.471***</td>
+                  <td>-0.461***</td>
+                </tr>
+                <tr>
+                  <td>                                      </td>
+                  <td>(0.147)  </td>
+                  <td>(0.145)  </td>
+                </tr>
+                <tr>
+                  <td>Population over 75 (%)                </td>
+                  <td>-1.934*  </td>
+                  <td>-1.691   </td>
+                </tr>
+                <tr>
+                  <td>                                      </td>
+                  <td>(1.041)  </td>
+                  <td>(1.084)  </td>
+                </tr>
+                <tr>
+                  <td>Disposable income per head (thousands)</td>
+                  <td>         </td>
+                  <td>-0.337   </td>
+                </tr>
+                <tr>
+                  <td>                                      </td>
+                  <td>         </td>
+                  <td>(0.931)  </td>
+                </tr>
+                <tr>
+                  <td>Growth of disposable income (%)       </td>
+                  <td>         </td>
+                  <td>0.410**  </td>
+                </tr>
+                <tr>
+                  <td>                                      </td>
+                  <td>         </td>
+                  <td>(0.196)  </td>
+                </tr>
+                <tr>
+                  <td>Constant                              </td>
+                  <td>30.628***</td>
+                  <td>28.566***</td>
+                </tr>
+                <tr>
+                  <td>                                      </td>
+                  <td>(7.409)  </td>
+                  <td>(7.355)  </td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.                              </td>
+                  <td>50       </td>
+                  <td>50       </td>
+                </tr>
+                <tr>
+                  <td>R2                                    </td>
+                  <td>0.262    </td>
+                  <td>0.338    </td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>In column (2) of <a href="#tbl-savings" class="quarto-xref">Table&nbsp;<span>2.1</span></a>, a share of under-15s one percentage point higher goes with a savings ratio 0.46 points lower. That number is not typed in: a short piece of R code inside the sentence computes it, so it changes whenever the data or the model do. Standard errors are in parentheses; <code>vcov = "HC1"</code> in <code>modelsummary()</code> switches to heteroskedasticity-robust ones (this needs the sandwich package). The option <code>#| tbl-pos: "H"</code> keeps the table where it is written; without it, LaTeX may move a table to the top or bottom of a page. Descriptive statistics for all five variables are in <a href="appendix.html#tbl-descriptives" class="quarto-xref">Table&nbsp;<span>A.1</span></a> in the appendix.</p>
+</section>
+<section id="sec-crossrefs" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sec-crossrefs"><span class="header-section-number">2.5</span> Cross-references</h2>
+<p>Anything with a label can be referenced with <code>@</code> and its label: writing <code>@fig-savings</code>, <code>@tbl-savings</code>, <code>@eq-lifecycle</code> and <code>@sec-citations</code> gives <a href="#fig-savings" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>, <a href="#tbl-savings" class="quarto-xref">Table&nbsp;<span>2.1</span></a>, <a href="#eq-lifecycle" class="quarto-xref">Equation&nbsp;<span>2.1</span></a> and <a href="#sec-citations" class="quarto-xref"><span>Section 2.1</span></a>. Section labels such as <code>{#sec-citations}</code> go after a heading. The numbers update when you add, move or delete figures, tables and sections, so never type them by hand.</p>
+</section>
+<section id="sec-workflow" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="sec-workflow"><span class="header-section-number">2.6</span> Workflow</h2>
+<p>A few habits keep a thesis reproducible from the first draft to the final PDF:</p>
+<ul>
+<li><strong>Render often.</strong> <code>quarto preview</code> shows the web version and refreshes it whenever you save; <code>quarto render</code>, or Render Book in RStudio’s Build pane, builds the PDF in <code>_book/</code>. Problems are easiest to fix while they are small.</li>
+<li><strong>Keep data and code in the project.</strong> Put raw data in a <code>data/</code> folder, read it with relative paths such as <code>read.csv("data/survey.csv")</code>, and never edit it by hand. Each chapter runs in its own R session, so load the packages and data it needs at its top, as this one does.</li>
+<li><strong>Let the computer remember.</strong> <code>freeze: auto</code> in <code>_quarto.yml</code> re-runs a chapter’s code only when that chapter changes, and renv records the package versions you use in <code>renv.lock</code>; run <code>renv::snapshot()</code> after installing a new package.</li>
+<li><strong>Use Git.</strong> Commit whenever you finish a piece of work, with a message that says what changed, and push to GitHub, so that every version of your thesis is backed up.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-arelbundock2022" class="csl-entry" role="listitem">
+Arel-Bundock, Vincent. 2022. <span>“<span class="nocase">modelsummary</span>: Data and Model Summaries in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 103 (1): 1–23. <a href="https://doi.org/10.18637/jss.v103.i01">https://doi.org/10.18637/jss.v103.i01</a>.
+</div>
+<div id="ref-belsley1980" class="csl-entry" role="listitem">
+Belsley, David A., Edwin Kuh, and Roy E. Welsch. 1980. <em>Regression Diagnostics: Identifying Influential Data and Sources of Collinearity</em>. Wiley.
+</div>
+<div id="ref-knuth84" class="csl-entry" role="listitem">
+Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-modigliani1966" class="csl-entry" role="listitem">
+Modigliani, Franco. 1966. <span>“The Life Cycle Hypothesis of Saving, the Demand for Wealth and the Supply of Capital.”</span> <em>Social Research</em> 33 (2): 160–217.
+</div>
+<div id="ref-r2024" class="csl-entry" role="listitem">
+R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Footnotes like this one are written inline, right where they belong, and numbered automatically.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

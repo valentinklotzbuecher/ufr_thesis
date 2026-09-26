@@ -8,3 +8,5 @@
 # knitr caches and intermediate figures, regenerated on every render
 /*_cache/
 /*_files/
+
+**/*.quarto_ipynb

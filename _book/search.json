@@ -2,11 +2,11 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Quarto Template",
+    "title": "Title of Your Thesis",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Abstract\nState your research question, the data and method you use, and your main result in a single paragraph of about 150 to 250 words. Write it last, once you know what the thesis says.",
     "crumbs": [
-      "Preface"
+      "Abstract"
     ]
   },
   {
@@ -14,39 +14,99 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "2 The Importance of Modern Tools in Economic Research\nEmbarking on a thesis in economics is an intellectually stimulating yet demanding journey, one that requires not just analytical rigor but also clear communication and effective organization of complex ideas. As you delve into this process, the tools you choose can greatly influence both your efficiency and the quality of your work. This is where Quarto and literate programming come into play, offering a robust framework that integrates writing, coding, and data visualization into a cohesive whole. By adopting these tools, you are not only streamlining your workflow but also ensuring that your research is transparent, reproducible, and professionally presented.\nIn the realm of economic research, clarity is paramount. Your thesis must convey intricate methodologies and detailed results in a manner that is accessible and understandable, not just to your thesis committee but to the broader academic community. Quarto allows you to write your thesis in a format that interweaves narrative and analysis, making it easier for your readers to follow the logical flow of your argument. The integration of literate programming takes this a step further by embedding your code within the document itself. This approach ensures that every piece of analysis is directly linked to the code that generated it, providing a level of transparency that is essential for the credibility of your work. Readers can see exactly how you arrived at your conclusions, which not only enhances the trustworthiness of your findings but also facilitates the replication of your results by other researchers.\nReproducibility is a cornerstone of good research, particularly in economics, where the ability to replicate findings is critical to the validation of results. With Quarto, you can create dynamic documents that automatically update analyses and results whenever data or parameters are changed. This means that as your research evolves, your thesis remains current without the need for extensive manual updates. This feature is particularly useful in the context of collaborative research or when working with large datasets, where maintaining consistency and accuracy across multiple revisions can be challenging. By using literate programming within Quarto, you are not just writing a static document; you are creating a living, breathing piece of research that evolves with your work.\nEfficiency is another significant benefit of using Quarto and literate programming. The process of writing a thesis is inherently time-consuming, and any tool that can reduce the time spent on formatting, revising, or switching between different software platforms is invaluable. Quarto brings together writing, coding, and data visualization in a single environment, allowing you to focus on the intellectual aspects of your research rather than the mechanics of document preparation. This integrated approach minimizes the risk of errors and inconsistencies that can arise from using multiple tools, and it accelerates the overall workflow, giving you more time to refine your analysis and polish your arguments.\nThe presentation of your results is equally important, particularly in a field like economics, where the clarity and professionalism of your graphs, tables, and equations can significantly impact how your work is received. Quarto supports advanced typesetting features, enabling you to produce documents that are not only clear and well-organized but also aesthetically pleasing. Whether you are presenting complex econometric models, detailed statistical tables, or intricate graphs, Quarto ensures that your work looks professional and meets the high standards expected in academic publications.\nFurthermore, by adopting Quarto and literate programming, you are equipping yourself with modern skills that extend beyond the completion of your thesis. In today’s data-driven world, the ability to produce reproducible research and to document the research process in a clear and transparent way is highly valued, both in academia and in the private sector. Mastering these tools gives you a competitive edge, whether you are pursuing further academic research, entering the job market, or working in a professional setting where data analysis and communication are key components of the role.\nIn conclusion, the use of Quarto and literate programming in your economics thesis is more than just a choice of tools; it represents a commitment to producing high-quality, transparent, and reproducible research. By integrating your writing, coding, and data analysis into a single, dynamic document, you are not only enhancing the quality of your thesis but also streamlining the process and developing skills that will serve you well in your future career. Embracing these modern approaches to research documentation will not only make your thesis journey smoother and more efficient but also ensure that your work stands out in the academic community for its clarity, rigor, and professionalism.",
+    "text": "Replace this chapter with your own introduction. Within the first page or two, tell the reader what question you ask, why it matters, how you answer it, what you find, and what your work adds to what is already known.\nEnd with a short roadmap. In this template, Chapter 2 is a worked example of the tools you need to write a thesis in Quarto: citations, equations, figures, tables and cross-references. Chapter 3 concludes, and Appendix A shows how an appendix is numbered. The last page holds the declaration of authorship you sign.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "intro.html#the-probit-model",
-    "href": "intro.html#the-probit-model",
-    "title": "1  Introduction",
-    "section": "3.1 The Probit Model",
-    "text": "3.1 The Probit Model\nThe Probit model assumes that there is an underlying latent variable \\(Y^*\\) that is a linear function of the explanatory variables \\(X\\) and a normally distributed error term \\(\\epsilon\\):\n\\[\nY^* = X\\beta + \\epsilon, \\quad \\epsilon \\sim \\mathcal{N}(0, 1)\n\\]\nHowever, we do not observe $Y^* $ directly. Instead, we observe a binary outcome \\(Y\\) defined as:\n\\[\nY =\n\\begin{cases}\n1 & \\text{if } Y^* &gt; 0 \\\\\n0 & \\text{if } Y^* \\leq 0\n\\end{cases}\n\\]\nThe probability that $Y = 1 $ (i.e., the event of interest occurs) is given by:\n\\[\nP(Y = 1 \\mid X) = \\Phi(X\\beta)\n\\]\nwhere \\(\\Phi(\\cdot)\\) is the cumulative distribution function (CDF) of the standard normal distribution.",
+    "objectID": "guide.html",
+    "href": "guide.html",
+    "title": "2  Writing with Quarto",
+    "section": "",
+    "text": "2.1 Citations\nThis chapter is a worked example. Open guide.qmd next to the PDF to see how each element is written, copy what you need into your own chapters, then delete this one and remove it from chapters: in _quarto.yml. Writing text and code in one document goes back to what Knuth (1984) called literate programming: the analysis and its description can no longer drift apart.\nThe example asks an old question in empirical economics: do countries with more dependants save less? Under the life-cycle hypothesis (Modigliani 1966), people save during their working years and run their savings down in retirement, so countries with more young and old dependants should save a smaller share of their income. The data are R’s built-in LifeCycleSavings set, 50 countries averaged over 1960 to 1970, which Belsley et al. (1980) took from a bachelor’s thesis written at MIT.1\nLoad the packages and prepare the data once, at the top of the chapter:\nReferences live in references.bib, a plain-text BibTeX file that a reference manager such as Zotero (with the Better BibTeX add-on) can keep up to date for you. Every entry has a key, and you cite it by writing the key after an @:\nAdd a page number with [@modigliani1966, p. 12]. The list of references at the end holds every source you cite and nothing else, in the Chicago author-date style unless you choose another with csl: in _quarto.yml. Cite your software too: citation() and citation(\"modelsummary\") in R print ready-made entries.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
     ]
   },
   {
-    "objectID": "intro.html#estimating-the-model",
-    "href": "intro.html#estimating-the-model",
-    "title": "1  Introduction",
-    "section": "3.2 Estimating the Model",
-    "text": "3.2 Estimating the Model\nIn practice, we estimate the vector of coefficients $$ using maximum likelihood estimation (MLE). The likelihood function for a sample of observations $i = 1, , n $ is given by:\n\\[\nL(\\beta) = \\prod_{i=1}^n \\Phi(X_i\\beta)^{Y_i} \\left[1 - \\Phi(X_i\\beta)\\right]^{1-Y_i}\n\\]\nThe log-likelihood, which is typically maximized numerically to find the MLE of $$, is:\n\\[\n\\log L(\\beta) = \\sum_{i=1}^n \\left[ Y_i \\log \\Phi(X_i\\beta) + (1 - Y_i) \\log \\left(1 - \\Phi(X_i\\beta)\\right) \\right]\n\\]\n\n3.2.1 Code Example: Estimating a Probit Model\nIn practice, you might use a statistical software package to estimate a Probit model. For example, in R, you could use the following code:\n\n# Load necessary libraries\nlibrary(tidyverse)  # For data manipulation and visualization\n\n-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --\nv dplyr     1.1.4     v readr     2.1.5\nv forcats   1.0.0     v stringr   1.5.1\nv ggplot2   3.5.1     v tibble    3.2.1\nv lubridate 1.9.3     v tidyr     1.3.1\nv purrr     1.0.2     \n-- Conflicts ------------------------------------------ tidyverse_conflicts() --\nx dplyr::filter() masks stats::filter()\nx dplyr::lag()    masks stats::lag()\ni Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(margins)    # For calculating marginal effects\nlibrary(modelsummary)    \n\n`modelsummary` 2.0.0 now uses `tinytable` as its default table-drawing\n  backend. Learn more at: https://vincentarelbundock.github.io/tinytable/\n\nRevert to `kableExtra` for one session:\n\n  options(modelsummary_factory_default = 'kableExtra')\n  options(modelsummary_factory_latex = 'kableExtra')\n  options(modelsummary_factory_html = 'kableExtra')\n\nSilence this message forever:\n\n  config_modelsummary(startup_message = FALSE)\n\nlibrary(flextable)\n\n\nAttache Paket: 'flextable'\n\nDas folgende Objekt ist maskiert 'package:purrr':\n\n    compose\n\n# Load the built-in dataset\ndata(\"mtcars\")\n\n# Inspect the data\nglimpse(mtcars)\n\nRows: 32\nColumns: 11\n$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,~\n$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,~\n$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16~\n$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180~\n$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,~\n$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.~\n$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18~\n$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,~\n$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,~\n$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,~\n$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,~\n\n# Create a binary outcome variable: 1 if mpg &gt; 20, 0 otherwise\nmtcars &lt;- mtcars %&gt;%\n  mutate(high_mpg = ifelse(mpg &gt; 20, 1, 0))\n\n# Fit the Probit model\nmodel &lt;- glm(high_mpg ~ hp + wt + cyl,\n             family = binomial(link = \"probit\"),\n             data = mtcars)\n\nWarning: glm.fit: Algorithmus konvergierte nicht\n\n\nWarning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1\naufgetreten\n\n# Summarize the model results\nsummary(model)\n\n\nCall:\nglm(formula = high_mpg ~ hp + wt + cyl, family = binomial(link = \"probit\"), \n    data = mtcars)\n\nCoefficients:\n              Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept)   227.9647 59356.0515   0.004    0.997\nhp             -0.5989   173.1890  -0.003    0.997\nwt            -60.3149 16456.6441  -0.004    0.997\ncyl             6.2871  4190.6791   0.002    0.999\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 4.386e+01  on 31  degrees of freedom\nResidual deviance: 8.744e-09  on 28  degrees of freedom\nAIC: 8\n\nNumber of Fisher Scoring iterations: 25\n\n\n\n# Calculate marginal effects\nmargins_model &lt;- margins(model)\n\n# Summarize the marginal effects\n#msummary(margins_model)\n\n# Visualize marginal effects\nplot(margins_model)\n\n# Interpretation:\n# The summary(model) output provides the estimated coefficients for the Probit model.\n# The coefficients indicate the direction of the effect, but the marginal effects\n# calculated via the margins() function tell us how a unit change in each predictor\n# affects the probability of a car having high MPG.\n\n\n\n\n\n\n\nFigure 3.1: Marginal effects\n\n\n\n\n\nFigure 3.1 shows the marginal effects.\n\n\n\nTable 3.1: Marginal effects\n\n\nsummarytable = msummary(list(margins_model),\n         output = \"flextable\",\n         fmt = fmt_statistic(estimate = 3,\n                             std.error = 3,\n                             conf.low = 3,\n                             conf.high = 3,\n                             nobs = 0),\n         stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),\n         estimate = \"{estimate}{stars}\",\n         statistic = \"({std.error})\",\n         conf_level = .95, \n         align=\"lc\",\n         gof_omit = 'AIC|BIC|R2 Adj.|RMSE|Std.Errors|R2 Within Adj.|R2 Within|R2',\n         coef_rename = c(\"lag_aid_gdp\" = \"Aid/GDP, t-1\"\n                           )\n         )\n\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "objectID": "guide.html#sec-citations",
+    "href": "guide.html#sec-citations",
+    "title": "2  Writing with Quarto",
+    "section": "",
+    "text": "You write\nYou get\n\n\n\n\n@modigliani1966 argues\nModigliani (1966) argues\n\n\nthe data [@belsley1980]\nthe data (Belsley et al. 1980)\n\n\n[see @modigliani1966]\n(see Modigliani 1966)\n\n\n[@knuth84; @r2024]\n(Knuth 1984; R Core Team 2024)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "guide.html#sec-equations",
+    "href": "guide.html#sec-equations",
+    "title": "2  Writing with Quarto",
+    "section": "2.2 Equations",
+    "text": "2.2 Equations\nEquations use LaTeX notation between double dollar signs. A label after the closing $$ numbers the equation:\n\\[\n\\text{sr}_i = \\beta_0 + \\beta_1\\,\\text{pop15}_i + \\beta_2\\,\\text{pop75}_i\n  + \\beta_3\\,\\text{dpi}_i + \\beta_4\\,\\text{ddpi}_i + \\varepsilon_i\n\\tag{2.1}\\]\nHere \\(\\text{sr}_i\\) is the savings ratio of country \\(i\\), aggregate personal saving as a percentage of disposable income; pop15 and pop75 are the shares of the population under 15 and over 75; dpi is real disposable income per head and ddpi its growth rate. Inline maths such as \\(\\beta_1 &lt; 0\\) goes between single dollar signs.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "guide.html#sec-figures",
+    "href": "guide.html#sec-figures",
+    "title": "2  Writing with Quarto",
+    "section": "2.3 Figures",
+    "text": "2.3 Figures\nFigures come from code chunks. The options at the top of a chunk, the lines starting with #|, give the figure a label that begins with fig- and a caption, and Figure 2.1 is then numbered and can be referenced anywhere.\n\nggplot(savings, aes(x = pop15, y = sr)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", formula = y ~ x,\n              colour = \"black\") +\n  labs(x = \"Population under 15 (%)\",\n       y = \"Savings ratio (%)\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 2.1: Savings ratio and the share of the population under 15, 50 countries, averages for 1960 to 1970\n\n\n\n\n\nCode is shown here so that you can see how each result is made. To hide it in your thesis, add #| echo: false to a chunk, or echo: false under execute: in _quarto.yml for all chunks at once.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "guide.html#sec-tables",
+    "href": "guide.html#sec-tables",
+    "title": "2  Writing with Quarto",
+    "section": "2.4 Tables",
+    "text": "2.4 Tables\nTables work the same way, with a label that begins with tbl-. The modelsummary package (Arel-Bundock 2022) turns fitted models into regression tables that look right in both the PDF and the web version:\n\nmodels &lt;- list(\n  \"(1)\" = lm(sr ~ pop15 + pop75, data = savings),\n  \"(2)\" = lm(sr ~ pop15 + pop75 + dpi_k + ddpi,\n             data = savings)\n)\n\nmodelsummary(\n  models,\n  stars = c(\"*\" = 0.1, \"**\" = 0.05, \"***\" = 0.01),\n  coef_map = c(\n    pop15 = \"Population under 15 (%)\",\n    pop75 = \"Population over 75 (%)\",\n    dpi_k = \"Disposable income per head (thousands)\",\n    ddpi = \"Growth of disposable income (%)\",\n    \"(Intercept)\" = \"Constant\"\n  ),\n  gof_map = c(\"nobs\", \"r.squared\")\n)\n\n\n\nTable 2.1: The savings ratio and the age structure of the population, OLS estimates of Equation 2.1\n\n\n\n\n\n    \n\n    \n    \n      \n        \n        \n              \n                 \n                (1)\n                (2)\n              \n        \n        * p &lt; 0.1, ** p &lt; 0.05, *** p &lt; 0.01\n        \n                \n                  Population under 15 (%)               \n                  -0.471***\n                  -0.461***\n                \n                \n                                                        \n                  (0.147)  \n                  (0.145)  \n                \n                \n                  Population over 75 (%)                \n                  -1.934*  \n                  -1.691   \n                \n                \n                                                        \n                  (1.041)  \n                  (1.084)  \n                \n                \n                  Disposable income per head (thousands)\n                           \n                  -0.337   \n                \n                \n                                                        \n                           \n                  (0.931)  \n                \n                \n                  Growth of disposable income (%)       \n                           \n                  0.410**  \n                \n                \n                                                        \n                           \n                  (0.196)  \n                \n                \n                  Constant                              \n                  30.628***\n                  28.566***\n                \n                \n                                                        \n                  (7.409)  \n                  (7.355)  \n                \n                \n                  Num.Obs.                              \n                  50       \n                  50       \n                \n                \n                  R2                                    \n                  0.262    \n                  0.338    \n                \n        \n      \n    \n\n\n\n\n\n\nIn column (2) of Table 2.1, a share of under-15s one percentage point higher goes with a savings ratio 0.46 points lower. That number is not typed in: a short piece of R code inside the sentence computes it, so it changes whenever the data or the model do. Standard errors are in parentheses; vcov = \"HC1\" in modelsummary() switches to heteroskedasticity-robust ones (this needs the sandwich package). The option #| tbl-pos: \"H\" keeps the table where it is written; without it, LaTeX may move a table to the top or bottom of a page. Descriptive statistics for all five variables are in Table A.1 in the appendix.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "guide.html#sec-crossrefs",
+    "href": "guide.html#sec-crossrefs",
+    "title": "2  Writing with Quarto",
+    "section": "2.5 Cross-references",
+    "text": "2.5 Cross-references\nAnything with a label can be referenced with @ and its label: writing @fig-savings, @tbl-savings, @eq-lifecycle and @sec-citations gives Figure 2.1, Table 2.1, Equation 2.1 and Section 2.1. Section labels such as {#sec-citations} go after a heading. The numbers update when you add, move or delete figures, tables and sections, so never type them by hand.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "guide.html#sec-workflow",
+    "href": "guide.html#sec-workflow",
+    "title": "2  Writing with Quarto",
+    "section": "2.6 Workflow",
+    "text": "2.6 Workflow\nA few habits keep a thesis reproducible from the first draft to the final PDF:\n\nRender often. quarto preview shows the web version and refreshes it whenever you save; quarto render, or Render Book in RStudio’s Build pane, builds the PDF in _book/. Problems are easiest to fix while they are small.\nKeep data and code in the project. Put raw data in a data/ folder, read it with relative paths such as read.csv(\"data/survey.csv\"), and never edit it by hand. Each chapter runs in its own R session, so load the packages and data it needs at its top, as this one does.\nLet the computer remember. freeze: auto in _quarto.yml re-runs a chapter’s code only when that chapter changes, and renv records the package versions you use in renv.lock; run renv::snapshot() after installing a new package.\nUse Git. Commit whenever you finish a piece of work, with a message that says what changed, and push to GitHub, so that every version of your thesis is backed up.\n\n\n\n\n\nArel-Bundock, Vincent. 2022. “modelsummary: Data and Model Summaries in R.” Journal of Statistical Software 103 (1): 1–23. https://doi.org/10.18637/jss.v103.i01.\n\n\nBelsley, David A., Edwin Kuh, and Roy E. Welsch. 1980. Regression Diagnostics: Identifying Influential Data and Sources of Collinearity. Wiley.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” The Computer Journal 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nModigliani, Franco. 1966. “The Life Cycle Hypothesis of Saving, the Demand for Wealth and the Supply of Capital.” Social Research 33 (2): 160–217.\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "guide.html#footnotes",
+    "href": "guide.html#footnotes",
+    "title": "2  Writing with Quarto",
+    "section": "",
+    "text": "Footnotes like this one are written inline, right where they belong, and numbered automatically.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Writing with Quarto</span>"
     ]
   },
   {
     "objectID": "conclusion.html",
     "href": "conclusion.html",
-    "title": "2  First chapter title",
+    "title": "3  Conclusion",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "Replace this chapter with your conclusion. Summarise what you found, say what it means and where its limits lie, and suggest what future work could do next. New results do not belong here.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>First chapter title</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Conclusion</span>"
     ]
   },
   {
@@ -54,9 +114,31 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "Arel-Bundock, Vincent. 2022. “modelsummary: Data and Model Summaries in\nR.” Journal of Statistical Software 103\n(1): 1–23. https://doi.org/10.18637/jss.v103.i01.\n\n\nBelsley, David A., Edwin Kuh, and Roy E. Welsch. 1980. Regression\nDiagnostics: Identifying Influential Data and Sources of\nCollinearity. Wiley.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” The\nComputer Journal 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nModigliani, Franco. 1966. “The Life Cycle Hypothesis of Saving,\nthe Demand for Wealth and the Supply of Capital.” Social\nResearch 33 (2): 160–217.\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical\nComputing. R Foundation for Statistical Computing. https://www.R-project.org/.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "appendix.html",
+    "href": "appendix.html",
+    "title": "Appendix A — Additional tables",
+    "section": "",
+    "text": "Appendix chapters are listed under appendices: in _quarto.yml. They are lettered rather than numbered, so tables and figures in this one are numbered A.1, A.2 and so on. The code that makes Table A.1 is hidden with #| echo: false, as it usually would be in a thesis.\n\n\n\n\nTable A.1: Descriptive statistics, 50 countries, averages for 1960 to 1970\n\n\n\n\n\n    \n\n    \n    \n      \n        \n        \n              \n                 \n                Mean\n                SD\n                Min\n                Max\n              \n        \n        \n        \n                \n                  Savings ratio (%)                     \n                  9.67 \n                  4.48\n                  0.60 \n                  21.10\n                \n                \n                  Population under 15 (%)               \n                  35.09\n                  9.15\n                  21.44\n                  47.64\n                \n                \n                  Population over 75 (%)                \n                  2.29 \n                  1.29\n                  0.56 \n                  4.70 \n                \n                \n                  Disposable income per head (thousands)\n                  1.11 \n                  0.99\n                  0.09 \n                  4.00 \n                \n                \n                  Growth of disposable income (%)       \n                  3.76 \n                  2.87\n                  0.22 \n                  16.71",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Additional tables</span>"
+    ]
+  },
+  {
+    "objectID": "declaration.html",
+    "href": "declaration.html",
+    "title": "Declaration of authorship",
+    "section": "",
+    "text": "Replace this text with the declaration your examination office requires, word for word. You will find the current wording on your examination office’s forms (Prüfungsamt) or in your programme’s examination regulations (Prüfungsordnung). It typically confirms that you wrote the thesis yourself, used only the sources and aids you name, and have not submitted it for another examination; many universities now also ask you to state whether and how you used AI tools.",
+    "crumbs": [
+      "Appendices",
+      "Declaration of authorship"
     ]
   }
 ]
