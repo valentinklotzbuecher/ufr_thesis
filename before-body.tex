@@ -15,8 +15,14 @@ $endif$
 $for(by-author)$
 {\Large\bfseries $by-author.name.literal$ \par}
 \vspace{3ex}
-{\bfseries\large Master of Science in Economics \par}
+$if(thesis-type)$
+{\bfseries\large $thesis-type$ \par}
 \vspace{3ex}
+$endif$
+$if(degree)$
+{\bfseries\large $degree$ \par}
+\vspace{3ex}
+$endif$
 {\bfseries\large $date$ \par}
 \vspace{12ex}
 $for(by-author.affiliations)$%
@@ -26,8 +32,12 @@ $if(it.department)$%
 $endif$%
 {\bfseries\large $it.name$ \par}
 $endfor$$endfor$%
+$if(supervisor)$
 \vspace{12ex}
-{\small Submitted in total fulfilment of the requirements
-of the degree of Doctor of Philosophy \par}
+$for(supervisor)$
+{\large $supervisor$ \par}
+$sep$\vspace{1ex}
+$endfor$
+$endif$
 }
 $endif$

@@ -1,9 +1,21 @@
 \addtokomafont{disposition}{\rmfamily}
 \KOMAoptions{chapterprefix=false,appendixprefix=true}
+\KOMAoptions{numbers=noendperiod}
 \KOMAoptions{headings=small}
 
 \setkomafont{pageheadfoot}{\normalfont\normalcolor\footnotesize}
 \setkomafont{pagenumber}{\normalfont\normalcolor\footnotesize}
+
+% 1.5 line spacing as word processors mean it ("1,5-zeilig"). LaTeX already
+% sets lines 1.2 times the font size apart, so \onehalfspacing adjusts for
+% that; linestretch: 1.5 in _quarto.yml would stretch it to about 1.8.
+\usepackage{setspace}
+\onehalfspacing
+
+% Wrap long code lines instead of letting them run into the margin, and set
+% code a size smaller than the text
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=\small,commandchars=\\\{\}}
 
 \usepackage{scrlayer-scrpage}
 \lefoot[]{}

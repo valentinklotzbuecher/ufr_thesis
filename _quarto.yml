@@ -2,22 +2,30 @@ project:
   type: book
 
 book:
-  title: "Quarto Template"
-  subtitle: "for Master's and Bachelor's theses"
-  author: 
-    - name: "Valentin Klotzb&uuml;cher"
+  title: "Title of Your Thesis"
+  subtitle: "An optional subtitle"
+  author:
+    - name: "Firstname Lastname"
       affiliations:
         - name: "University of Freiburg"
           department: "Department of Economics"
-  date: last modified
+  # Set a fixed submission date once you hand in, e.g. 2026-10-15
+  date: last-modified
   date-format: long
   chapters:
     - index.qmd
     - intro.qmd
     - conclusion.qmd
     - references.qmd
-  output-file: "FirstnameLastname_thesis.pdf"
-   
+  # Quarto adds the .pdf extension
+  output-file: "FirstnameLastname_thesis"
+
+# Title page lines, printed as written; delete any you don't need
+thesis-type: "Master's thesis"
+degree: "Master of Science in Economics"
+supervisor:
+  - "Supervisor: Prof. Dr. Firstname Lastname"
+
 bibliography: references.bib
 
 format:
@@ -27,6 +35,8 @@ format:
     linestretch: 1.7
   pdf:
     documentclass: scrreprt
+    papersize: a4
+    fontsize: 12pt
     toc: true
     toc-depth: 3
     toc-title: "Table of contents"
@@ -52,9 +62,6 @@ format:
     template-partials:
         - before-body.tex
 
-execute: 
+execute:
   cache: true
   freeze: auto
-  
-  
-
