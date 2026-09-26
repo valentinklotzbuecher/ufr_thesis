@@ -34,10 +34,10 @@ instead.
 
 ## Quick start
 
-1. Open `ufr_thesis.Rproj` in RStudio, or the folder in Positron. renv, which
-   manages the R packages, sets itself up on first start.
-2. Run `renv::restore()` in the R console to install the packages the
-   template uses, in the versions recorded in `renv.lock`.
+1. Open `ufr_thesis.Rproj` in RStudio, or the folder in Positron.
+2. Install the R packages the example uses by running
+   `install.packages(c("rmarkdown", "ggplot2", "modelsummary"))` in the R
+   console.
 3. Fill in your details in `_quarto.yml`: title, name, thesis type, degree,
    supervisor(s) and, once you hand in, the submission date. Rename
    `output-file` too.
@@ -60,7 +60,6 @@ instead.
 | `references.bib` | Your references, in BibTeX format |
 | `before-body.tex` | Title page layout |
 | `include-in-header.tex` | Page headers, headings, line spacing and code wrapping in the PDF |
-| `renv.lock` | R package versions |
 
 ## Layout
 
@@ -83,6 +82,23 @@ rules before you hand in, and adjust `_quarto.yml` and
   `references.bib` in step with your library.
 - **Hide code:** add `echo: false` under `execute:` in `_quarto.yml` to leave
   all code out of the PDF.
+
+## Pinning package versions (optional)
+
+To keep things simple, the template installs packages the ordinary way, so
+you get whatever versions are current. If your results need to reproduce
+exactly years from now, one of these tools can help:
+
+- [renv](https://rstudio.github.io/renv/) records the package versions your
+  project uses in a lockfile and restores them on another computer.
+- [groundhog](https://groundhogr.com/) loads packages as they were on a date
+  you choose, for example `groundhog.library("modelsummary", "2026-09-01")`.
+- [Docker](https://www.docker.com/) packs R, the packages and the operating
+  system into one image; the [Rocker project](https://rocker-project.org/)
+  offers images with R already installed.
+
+Even without any of them, `sessionInfo()` prints the R and package versions
+behind your results, which are worth reporting in an appendix.
 
 ## Status
 

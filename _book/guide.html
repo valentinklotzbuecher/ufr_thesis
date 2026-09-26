@@ -584,7 +584,7 @@ window.addEventListener('load', function () { styleCell_7zfsvznk8wtc5btgpv25(13,
 <ul>
 <li><strong>Render often.</strong> <code>quarto preview</code> shows the web version and refreshes it whenever you save; <code>quarto render</code>, or Render Book in RStudio’s Build pane, builds the PDF in <code>_book/</code>. Problems are easiest to fix while they are small.</li>
 <li><strong>Keep data and code in the project.</strong> Put raw data in a <code>data/</code> folder, read it with relative paths such as <code>read.csv("data/survey.csv")</code>, and never edit it by hand. Each chapter runs in its own R session, so load the packages and data it needs at its top, as this one does.</li>
-<li><strong>Let the computer remember.</strong> <code>freeze: auto</code> in <code>_quarto.yml</code> re-runs a chapter’s code only when that chapter changes, and renv records the package versions you use in <code>renv.lock</code>; run <code>renv::snapshot()</code> after installing a new package.</li>
+<li><strong>Let the computer remember.</strong> <code>freeze: auto</code> in <code>_quarto.yml</code> re-runs a chapter’s code only when that chapter changes. The template does not pin package versions; if your results must reproduce exactly years from now, <a href="https://rstudio.github.io/renv/">renv</a> or <a href="https://groundhogr.com/">groundhog</a> can do that for R packages, and <a href="https://www.docker.com/">Docker</a> for the whole computing environment.</li>
 <li><strong>Use Git.</strong> Commit whenever you finish a piece of work, with a message that says what changed, and push to GitHub, so that every version of your thesis is backed up.</li>
 </ul>
 

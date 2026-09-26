@@ -160,9 +160,11 @@ PDF:
   never edit it by hand. Each chapter runs in its own R session, so load the
   packages and data it needs at its top, as this one does.
 - **Let the computer remember.** `freeze: auto` in `_quarto.yml` re-runs a
-  chapter's code only when that chapter changes, and renv records the
-  package versions you use in `renv.lock`; run `renv::snapshot()` after
-  installing a new package.
+  chapter's code only when that chapter changes. The template does not pin
+  package versions; if your results must reproduce exactly years from now,
+  [renv](https://rstudio.github.io/renv/) or
+  [groundhog](https://groundhogr.com/) can do that for R packages, and
+  [Docker](https://www.docker.com/) for the whole computing environment.
 - **Use Git.** Commit whenever you finish a piece of work, with a message
   that says what changed, and push to GitHub, so that every version of your
   thesis is backed up.
